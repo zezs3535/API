@@ -29,11 +29,13 @@ if __name__=="__main__":
     url=requests.get("https://search.naver.com/search.naver?where=news&sm=tab_jum&query=%s"%keyword)
 
     soup=BeautifulSoup(url.text,'html.parser')
-    #title=soup.find_all('_sp_each_title')
-    title=soup.select('.news .type01 li dt a[title]')
+    title=soup.select('.news .type01 li dt a')
+    uploadTime=soup.select('.news .type01 li dd span')
     f=open("News.txt","w")
     for i in title:
         f.write(i.attrs['title'])
+        f.write("\nURL : ")
         f.write(i.attrs['href'])
+        f.write("\n")
         f.write("\n")
     f.close()
