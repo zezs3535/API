@@ -1,0 +1,19 @@
+from bs4 import BeautifulSoup
+
+url=requests.get(입력할 url)
+
+soup=BeautifulSoup(url.text,'html.parser')
+
+soup.find('title')
+#find()는 조건을 만족하는 태그 하나만 가져온다.
+
+soup.find_all('title')
+#find_all()은 조건을 만족하는 모든 태그를 가져온다.
+#여러가지 태그를 찾으려면 파라미터를 리스트 형태로 입력한다.
+soup.find_all(['p','img']) 이렇게..
+
+soup.select('title')
+#select는 태그이름, 클래스, id 등 여러 기능이 있다.
+select('.클래스명')
+select(' 상위태그.클래스이름 > 하위태그.클래스이름 ')
+select('태그명[속성1=값1]') ex) soup.select('a[href]')
