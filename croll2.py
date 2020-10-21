@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 member_num=input('아이디 입력 : ')
 pw=input('비밀번호 : ')
-driver=webdriver.Chrome('C://Users/Jcy/AppData/Local/Programs/Python/Python38/chromedriver')
+driver=webdriver.Chrome('url')
 
 driver.implicitly_wait(4)
 driver.get('https://www.musinsa.com/?mod=login&referer=https%3A%2F%2Fwww.musinsa.com%2Findex.php%3F')
