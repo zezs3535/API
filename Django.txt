@@ -5,3 +5,27 @@ django-admin startproject 프로젝트이름 #프로젝트 생성
 python manage.py migrate #DB 생성
 
 python manage.py runserver #서버 실행  (default : http://127.0.0.1:8000)
+
+python manage.py startapp 앱이름 #앱 생성(설치)
+
+python manage.py createsuperuser #admin 생성
+
+#출처 : https://citylock77.tistory.com/17?category=864190
+settings.py : Django Application 설정
+urls.py : HTTP Web 요청에 대한 컨트롤
+wsgi.py : 웹서비스 설정
+admin.py : 앱 관리 모듈
+apps.py : Application configuration
+models.py : configure database, 클래스를 생성한다고 생각하면 쉽다
+ex) 게시글을 생성한다고 하면 title, text, author, date 등이 필요하다
+models.CharField : 글자 수가 제한된 텍스트를 정의할 때 사용, 글 제목 등
+models.TextField : 글자 수에 제한이 없는 긴 텍스트를 위한 속성
+models.DateTimeField : 날짜와 시간을 의미
+models.ForeignKey : 다른 모델에 대한 링크
+더 많은 모델은 : https://docs.djangoproject.com/en/2.0/ref/models/fields/#field-types
+
+views.py : deliver a service, models과 templates를 연결해주는 역할, 사용자의 요청에 대한 정보를 찾아서 원하는 정보를 다시 리턴
+HttpResponse : 웹 요청의 결과를 http 형식으로 리턴하기 위한 모듈
+
+
+
