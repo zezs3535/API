@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import requests
+from bs4 import BeautifulSoup
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import News
@@ -13,4 +15,15 @@ def index(request):
 # Create your views here.
 
 def search(request):
-    return render(request, 'search.html')
+    """ newslist=News.objects.all()
+    context={'newslist':newslist} """
+    url = requests.get(
+        "https://search.naver.com/search.naver?where=news&sm=tab_jum&query=카카오")
+
+    soup = BeautifulSoup(url.text, 'html.parser')
+    title = soup.select('.news .type01 li dt a')
+    uploadTime = soup.select('.news .type01 li dd span')
+    data={}
+    for item in zip(title,uploadTime):
+        
+    return render(request, 'search.html',data)

@@ -13,11 +13,18 @@ python manage.py createsuperuser #admin 생성
 #출처 : https://citylock77.tistory.com/17?category=864190
 settings.py : Django Application 설정
 urls.py : HTTP Web 요청에 대한 컨트롤
+^ : 첫 글자와 매칭 (^a : a O abc O def X)
+$ : 마지막 글자와 매칭 (b$ : b O  abbb O abc X)
+^$ : 빈 문자열(index로 갈때 사용)
+'' : 빈 문자열(모든 url에 적용된다)
+
 wsgi.py : 웹서비스 설정
 admin.py : 앱 관리 모듈
 apps.py : Application configuration
 models.py : configure database, 클래스를 생성한다고 생각하면 쉽다
 ex) 게시글을 생성한다고 하면 title, text, author, date 등이 필요하다
+__str__ 메소드를 이용하여 데이터베이스에서 어떤 속성을 표시할 지 설정할 수 있다. (return self.name)을 하면 이름이 게시글 제목처럼 나옴
+
 models.CharField : 글자 수가 제한된 텍스트를 정의할 때 사용, 글 제목 등
 models.TextField : 글자 수에 제한이 없는 긴 텍스트를 위한 속성
 models.DateTimeField : 날짜와 시간을 의미
