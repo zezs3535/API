@@ -39,8 +39,8 @@
                     <label for="keyword"></label>
                     <input type="text" name="keyword" class="form-control" id="keyword" placeholder="keyword">
                     <button type="submit">search</button>
-                    {% for news in newslist %}
-                    <h4>{{news.title}} {{news.text}}</h4>
+                    {% for idx,title in zip(data,data.values()) %}
+                    <h4>{{idx}} : {{title}}</h4>
                     {% endfor %}
                 </div>
             </div>
