@@ -16,11 +16,3 @@ if __name__ == "__main__":
     data={}
     for i in title:
         data[i.title]=title.get('href')
-    #f = open("News.txt", "w")
-    # for i in title:
-    #     f.write(i.attrs['title'])
-    #     f.write("\nURL : ")
-    #     f.write(i.attrs['href'])
-    #     f.write("\n")
-    #     f.write("\n")
-    # f.close()

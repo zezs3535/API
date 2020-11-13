@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^index/', index, name='index'),
     url(r'^search/', search, name='search'),
+    url(r'^find/',find,name='find'),
 ]
