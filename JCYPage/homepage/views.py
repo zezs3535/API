@@ -16,11 +16,15 @@ def index(request):
 def search(request):
     return render(request, 'search.html')
 
-def find(request):
-    post = News()
-    post.text=request.POST['text']
-    post.title=request.POST['title']
-    post.url=request.POST['url']
-    post.save()
+def shop(request):
+    return render(request, 'shop.html')
 
-    return redirect('search.html')
+def find(request):
+    # post = News()
+    # post.text=request.POST['text']
+    # post.title=request.POST['title']
+    # post.url=request.POST['url']
+    # post.save()
+    tmp={"idx":3, "text":"aaaaa"}
+    #return redirect('search.html')
+    return render(request, 'search.html', tmp)

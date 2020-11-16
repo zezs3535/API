@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from homepage.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,4 +25,5 @@ urlpatterns = [
     url(r'^index/', index, name='index'),
     url(r'^search/', search, name='search'),
     url(r'^find/',find,name='find'),
-]
+    url(r'^shop/',shop,name='shop'),
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

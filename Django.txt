@@ -15,11 +15,14 @@ settings.py : Django 프로젝트 상의 모든 환경 설정을 관리하는 �
 - templates : Django 프로젝트 및 앱의 웹페이지 양식을 저장하기 위한 Template. 프로젝트에 대한 웹페이지는 '/프로젝트명/templates/' 디렉토리 내에 있는 파일, 앱은 '/앱명/templates/' 디렉토리 내에 있는 파일의 URL만 사용한다.
 - databases : Django에서 사용할 DB를 지정하는 구문. 기본은 SQLite3인데 변경 가능.
 - time_zone : 기본값은 표준시(UTC), 한국 표준시로 하려면 'Asia/Seoul'로 변경
+
 urls.py : HTTP Web 요청에 대한 컨트롤, URL을 관리하는 파일
 ^ : 첫 글자와 매칭 (^a : a O abc O def X)
 $ : 마지막 글자와 매칭 (b$ : b O  abbb O abc X)
 ^$ : 빈 문자열(index로 갈때 사용)
 '' : 빈 문자열(모든 url에 적용된다)
+
+path(url, views내에서 호출할 함수, Django에서 부를 이름(url의 이름))
 
 wsgi.py : 웹 서비스를 위한 호환 규격을 명시한 파일, 작업에 사용하지는 않지만 웹 어플리케이션 가동을 위해선 필수적인 파일
 admin.py : 관리자 페이지에 들어갈 데이터 명세, 웹 어플리케이션 상에서 관리되는 데이터 등록, 조회, 삭제를 수행하기 위한 페이지
@@ -27,6 +30,10 @@ apps.py : 앱에 대한 클래스를 선언 및 정의하는 파일.
 models.py : configure database, 클래스를 생성한다고 생각하면 쉽다
 ex) 게시글을 생성한다고 하면 title, text, author, date 등이 필요하다
 __str__ 메소드를 이용하여 데이터베이스에서 어떤 속성을 표시할 지 설정할 수 있다. (return self.name)을 하면 이름이 게시글 제목처럼 나옴
+
+Template 언어 : Python 변수 & 문법을 HTML에서 쓸 수 있도록 Django에서 제공하는 언어
+{{}} 템플릿 변수(명사)
+{% %} 템플릿 태그(동사)
 
 category = models.ForeignKey('BoardCategories', models.DO_NOTHING) #BoardCategories 모델의 foreign key로 사용되는 필드
 models.CharField : 글자 수가 제한된 텍스트를 정의할 때 사용, 글 제목 등
@@ -41,7 +48,6 @@ class Meta:
 
 views.py : deliver a service, models과 templates를 연결해주는 역할, 사용자의 요청에 대한 정보를 찾아서 원하는 정보를 다시 리턴
 HttpResponse : 웹 요청의 결과를 http 형식으로 리턴하기 위한 모듈
-
 
 장고 강의 내용
 Django의 개발 방식은 MTV(Model-Template_View) 프레임워크를 사용한다.
